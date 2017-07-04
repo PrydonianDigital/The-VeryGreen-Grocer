@@ -1,0 +1,664 @@
+/*
+Theme Name: The VeryGreen Grocer
+Theme URI: https://theverygreengrocer.co.uk
+Description: Updated theme for The VeryGreen Grocer
+Version: 2.0
+Author: Mark Duwe
+Author URI: http://prydonian.digital
+Tags:
+License: Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License
+License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
+Text Domain: vgg
+*/
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+body {
+	background: rgba(253,255,250,1);
+	background: -moz-linear-gradient(top, rgba(253,255,250,1) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(253,255,250,1)), color-stop(100%, rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top, rgba(253,255,250,1) 0%, rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(top, rgba(253,255,250,1) 0%, rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(253,255,250,1) 0%, rgba(255,255,255,1) 100%);
+	background: linear-gradient(to bottom, rgba(253,255,250,1) 0%, rgba(255,255,255,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfffa', endColorstr='#ffffff', GradientType=0 );	margin: 0;
+	font-family: "Libre Baskerville", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+.off-canvas {
+	background: #3E4F03;
+}
+.off-canvas a {
+	color: #FAFEEB;
+}
+#mainHeader {
+	width: 100%;
+	background: #FAFEEB;
+	padding: 0.5rem 0 0 0;
+	margin-bottom: 1rem;
+	border-radius: 0 0 3px 3px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.admin-bar #mainHeader {
+	top: 32px;
+}
+#mainHeader #logo {
+	position: relative;
+	overflow: hidden;
+}
+#mainHeader .button {
+	margin-bottom: 0 !important;
+}
+.custom-logo {
+	max-width: 320px;
+	height: auto;
+	margin: 0 0 0.5rem 0;
+}
+.fixed {
+	position: relative;
+}
+footer {
+	width: 100%;
+	background: #FAFEEB;
+	padding: 0.5rem;
+	margin-top: 1rem;
+	padding-top: 1rem;
+	color: #3E4F03;
+	box-shadow: 0 -2px 4px rgba(0,0,0,0.5);
+}
+.top-bar {
+	border-radius: 0 0 3px 3px !important;
+	margin-top: 0 !important;
+}
+.top-bar .button {
+	margin-bottom: 0 !important;
+}
+.top-bar, .top-bar ul {
+	background: #3E4F03;
+}
+.top-bar a {
+	color: #FAFEEB;
+}
+.top-bar a:hover{
+	background: #4b991c;
+	border-radius: 3px;
+}
+.button.primary, .button {
+	background: #3E4F03;
+	color: #fff;
+}
+.button.primary:hover, .button:hover {
+	background: #4b991c;
+	color: #e6e6e6;
+}
+footer .widget {
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+}
+footer a {
+	color: #3E4F03;
+}
+footer a:hover {
+	color: #1F2701 !important;
+}
+.row.page {
+	padding-top: 1rem;
+}
+.top-bar {
+	margin-top: 0.25rem;
+	border-radius: 3px;
+}
+.current-menu-item, .current_page_parent, .current-menu-item:hover, .current_page_parent:hover, .single-suppliers .menu-item-object-suppliers, .single-produce .menu-item-object-produce, .single-extras .menu-item-object-extras, .tax-produce_category .menu-item-object-produce {
+	background: #4b991c;
+	border-radius: 3px;
+}
+.current-menu-item a, .current_page_parent a, .current-menu-item:hover a, .current_page_parent:hover a, .single-suppliers .menu-item-object-suppliers a, .single-produce .menu-item-object-produce a, .single-extras .menu-item-object-extras a, .tax-produce_category .menu-item-object-produce a {
+	color: #e6e6e6;
+}
+.product_cat_shop-on-wheels .current_page_parent, .product_cat_shop-on-wheels .current_page_parent a {
+	background: #3E4F03;
+	color: #FAFEEB;
+}
+.card-divider h4, .card-divider h6 {
+	margin: 0 !important;
+}
+.callout.title {
+	background-position: center center !important;
+	background-size: cover !important;
+	min-height: 400px;
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+.home .callout {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	min-height: 50vh;
+	background-repeat: no-repeat !important;
+	background-attachment: fixed !important;
+	background-size: cover !important;
+}
+.callout {
+	overflow: hidden;
+}
+.callout.regular {
+	min-height: 0;
+}
+.callout .bg {
+	margin: 0 auto;
+	max-width: 80%;
+	background: rgba(255,255,255,0.6);
+	padding: 1rem;
+	border-radius: 3px;
+}
+.callout .bg a {
+	color: #3E4F03;
+}
+.callout .bg a.button {
+	color: #FAFEEB;
+}
+.callout .bg a.button:hover {
+	background: #4b991c !important;
+}
+.callout .button {
+	float: right;
+}
+.callout .bg .button {
+	float: none;
+}
+.tabs-panel.is-active {
+	max-height: 250px;
+	overflow-y: auto;
+}
+.card-divider h4 {
+	font-size: 1.28125rem;
+}
+.card-divider {
+	background: #3E4F03;
+}
+.card-divider a {
+	color: #FAFEEB;
+}
+.taptouch {
+	border: 1px solid rgba(10, 10, 10, 0.25);
+	line-height: 1.2 !important;
+	border-radius: 3px;
+	padding: 0.5rem;
+	margin-bottom: 0.9375rem;
+	background: #fff;
+	width: 100%;
+}
+.taptouch input[type="number"] {
+	margin: 0;
+}
+.taptouch .button.tiny {
+	font-size: 0.6rem !important;
+}
+.taptouch .button-group input {
+	margin: 0;
+}
+.taptouch label {
+	line-height: 1.2 !important;
+}
+.product-addon div.addon {
+}
+div.addon-description p {
+	font-style: normal !important;
+	font-size: 90%;
+}
+.product-addon .openQ div.addon {
+	display: block;
+}
+.product-addon .border {
+	padding: 0.9375rem;
+	border-radius: 3px;
+	border: 1px solid rgba(10, 10, 10, 0.25);
+	background-color: #e6f7d9;
+}
+.stat {
+	margin: 0.25rem 0;
+}
+.addon-title {
+	cursor: pointer;
+}
+.addon-title.closed:after {
+	font-family: 'fontawesome';
+	content: '\f067';
+}
+.addon-title.open:after {
+	font-family: 'fontawesome';
+	content: '\f068';
+}
+form {
+	overflow: hidden;
+}
+.quantity {
+	overflow: hidden;
+}
+.quantity:before {
+	content: "Quantity: ";
+	font-weight: bold;
+	float: left;
+	margin: 0.3rem 1rem 0 0;
+}
+.quantity input[type="number"] {
+	width: auto !important;
+}
+.product_meta, th.product-quantity, td.product-quantity {
+	display: none !important;
+}
+.product-addon-totals {
+	width: 100%;
+}
+.product-addon-totals dt, .product-addon-totals dd {
+	width: 50%;
+	margin-bottom: 0.9375rem;
+	padding: 0.46875rem 0.9375rem;
+	border-bottom: 1px solid rgba(10, 10, 10, 0.25);
+}
+.product-addon-totals dd {
+	text-align: right;
+}
+a.remove {
+	float: left !important;
+	background: red !important;
+	color: #fff !important;
+	width: 16px !important;
+	height: 16px !important;
+	display: block !important;
+	border-radius: 16px !important;
+	line-height: 14px !important;
+	text-align: center !important;
+	margin-right: 0.25em !important;
+}
+a.remove:hover {
+	color:#fff!important;
+	background:red;
+}
+
+.product_list_widget a {
+	width: 100%;
+	max-width: 100%;
+}
+.mini_cart_item a, .product_list_widget a {
+	float: left;
+	display: block;
+	overflow: hidden;
+	word-wrap: break-word;
+	max-width: 50%;
+	line-height: 1.1;
+	font-size: 1rem;
+}
+.mini_cart_item a img, .product_list_widget a img {
+	display: block;
+	margin: 0 0.5em;
+	max-width: 60px;
+	float: left;
+}
+.mini_cart_item span.quantity {
+	float: right;
+}
+.mini_cart_item, .product_list_widget li {
+	clear: both;
+	overflow: hidden;
+	padding: 0 0 1em 0;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 1em;
+}
+label {
+	margin: 1em 0 0.5em 0;
+}
+label.panel-block {
+	margin: 0;
+}
+.panel-block input {
+	margin-right: 1em !important;
+}
+.fieldset, fieldset {
+	border: none;
+}
+.checkout.woocommerce-checkout.processing {
+    background-image:url('/wp-content/plugins/woocommerce/assets/images/select2-spinner.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.woocommerce-MyAccount-navigation ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.woocommerce-MyAccount-navigation ul li {
+	padding: 0.25em;
+	border-bottom: 1px solid gray;
+}
+.woocommerce-MyAccount-navigation ul li a {
+	color: #333;
+	display: block;
+}
+.woocommerce-MyAccount-navigation ul li a:before {
+	display: inline-block;
+	font: normal normal normal 1em/1 'FontAwesome';
+	font-size: 1.2rem;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\f0f6";
+	line-height: 1.618;
+	margin-left: .53em;
+	width: 1.387em;
+	text-align: right;
+	float: right;
+	opacity: .35;
+	line-height: 1 !important;
+}
+.woocommerce-MyAccount-navigation ul li a:hover:before, .woocommerce-MyAccount-navigation ul li.is-active a:before {
+	opacity:1;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard a:before {
+	content:"\f0e4";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders a:before {
+	content:"\f290";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--downloads {
+	display: none !important;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address a:before {
+	content:"\f2bc";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--payment-methods a:before {
+	content:"\f09d";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account a:before {
+	content:"\f007";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:before {
+	content:"\f08b";
+}
+.payment {
+
+}
+.payment .payment-item:first-child {
+	border-radius: 3px 3px 0 0;
+}
+.payment .payment-item {
+	border: 1px solid rgba(10, 10, 10, 0.25);
+	border-bottom: 0;
+}
+.payment .payment-item:last-child {
+	border-radius: 0 0 3px 3px;
+	border: 1px solid rgba(10, 10, 10, 0.25);
+}
+.payment label.payment-title {
+	position: relative;
+	display: block;
+	padding: 1.25rem 1rem;
+	line-height: 1;
+	color: #4b991c;
+	cursor: pointer;
+	margin: 0 !important;
+	font-size: inherit !important
+}
+.payment .payment-title:hover {
+	background: #e6e6e6;
+}
+.payment .payment-content {
+	position: relative;
+	padding: 0;
+	max-height: 0;
+	overflow: hidden;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.payment .is-active .payment-title {
+	background: #e6e6e6;
+}
+.payment .is-active .payment-content {
+	position: relative;
+	max-height: 10em;
+}
+.payment .payment-content div {
+	padding: 1.25rem 1rem;
+}
+.row.post {
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid rgba(10, 10, 10, 0.25);
+}
+.tiny {
+	font-size: 0.5rem;
+	margin-bottom: 1rem;
+}
+@media screen and (max-width: 400px) {
+	.callout.title {
+		background-attachment: scroll !important;
+		min-height: 400px;
+		box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+	}
+	.callout.title {
+		min-height: 350px;
+	}
+	.home .callout {
+		background-attachment: scroll !important;
+		background-repeat: no-repeat !important;
+		background-size: cover !important;
+		background-position: center center !important
+	}
+	.callout {
+		overflow: hidden;
+	}
+	.callout .bg {
+		max-width: 95%;
+		background: rgba(255,255,255,0.6);
+	}
+	.custom-logo {
+		max-width: 100%;
+		height: auto;
+	}
+}
+.alignleft {
+	float: left;
+	margin: 0 0.5rem 0 0;
+}
+.alignright {
+	float: right;
+	margin: 0 0 0 0.5rem;
+}
+.check input[type="checkbox"] {
+	position: absolute;
+	left: -100%;
+}
+.check input[type="checkbox"]:checked + label, table thead, table thead tr:hover, table tfoot, table tfoot tr:hover {
+  background: #3E4F03 !important;
+  color: #fff;
+}
+.row .woocommerce {
+	width: 100%;
+}
+ol {
+	margin-left: 2.25rem !important;
+}
+.plus-minus-input {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.plus-minus-input .input-group-field {
+  text-align: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 1rem;
+}
+.plus-minus-input .input-group-field::-webkit-inner-spin-button,
+.plus-minus-input .input-group-field ::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+.plus-minus-input .circle {
+  border-radius: 50%;
+  padding: 0.5em 0.9em;
+  height: 2.4375rem;
+  margin: 0;
+}
+.shippingError {
+	color: #c60f13 !important;
+}
+header .menu.align-center a {
+	color: #3E4F03;
+}
+header .menu.align-center a i {
+	font-size: 32px;
+}
+ul.accepted-payment-methods {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+	list-style: none;
+}
+ul.accepted-payment-methods:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+ul.accepted-payment-methods li {
+	padding-left: 0;
+	margin-left: 0;
+	list-style: none;
+	display: inline;
+	margin-right: .5em;
+}
+ul.accepted-payment-methods li span {
+	display: inline-block;
+	padding: 4px;
+	background: #FAFEEB;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width: 50px;
+	height: 16px;
+	text-align: left;
+	text-indent: -999em;
+	background-position: 4px 4px;
+	background-repeat: no-repeat;
+	box-sizing: content-box;
+}
+ul.accepted-payment-methods li.visa span {
+	background-image: url(images/visa.png);
+}
+ul.accepted-payment-methods li.paypal span {
+	width: 61px;
+	background-image: url(images/paypal.png);
+}
+ul.accepted-payment-methods li.mastercard span {
+	width: 26px;
+	background-image: url(images/mastercard.png);
+}
+ul.accepted-payment-methods li.maestro span {
+	width: 26px;
+	background-image: url(images/maestro.png);
+}
+ul.accepted-payment-methods li.google span {
+	width: 77px;
+	background-image: url(images/google.png);
+}
+ul.accepted-payment-methods li.american-express span {
+	width: 18px;
+	background-image: url(images/amex.png);
+}
+ul.accepted-payment-methods li.discover span {
+	width: 96px;
+	background-image: url(images/discover.png);
+}
+ul.accepted-payment-methods li.bitcoin span {
+	width: 77px;
+	background-image: url(images/bitcoin.png);
+}
+ul.accepted-payment-methods li.cash-on-delivery span {
+	width: 27px;
+	background-image: url(images/cod.png);
+}
+ul.accepted-payment-methods li.stripe span {
+	width: 39px;
+	background-image: url(images/stripe.png);
+}
+ul.accepted-payment-methods li.visadelta span {
+	width: 26px;
+	background-image: url(images/delta.png);
+}
+ul.accepted-payment-methods li.visaelectron span {
+	width: 25px;
+	background-image: url(images/electron.png);
+}
+ul.accepted-payment-methods li.jcb span {
+	width: 21px;
+	background-image: url(images/jcb.png);
+}
+ul.accepted-payment-methods li.bacs span {
+	width: 55px;
+	background-image: url(images/bacs.png);
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1) {
+	ul.accepted-payment-methods li.visa span {
+		background-image: url(images/visa@2x.png);
+		background-size: 50px 16px;
+	}
+	ul.accepted-payment-methods li.paypal span {
+		background-image: url(images/paypal@2x.png);
+		background-size: 61px 16px;
+	}
+	ul.accepted-payment-methods li.mastercard span {
+		background-image: url(images/mastercard@2x.png);
+		background-size: 26px 16px;
+	}
+	ul.accepted-payment-methods li.maestro span {
+		background-image: url(images/maestro@2x.png);
+		background-size: 26px 16px;
+	}
+	ul.accepted-payment-methods li.google span {
+		background-image: url(images/google@2x.png);
+		background-size: 77px 16px;
+	}
+	ul.accepted-payment-methods li.american-express span {
+		background-image: url(images/amex@2x.png);
+		background-size: 18px 16px;
+	}
+	ul.accepted-payment-methods li.discover span {
+		background-image: url(images/discover@2x.png);
+		background-size: 96px 16px;
+	}
+	ul.accepted-payment-methods li.bitcoin span {
+		background-image: url(images/bitcoin@2x.png);
+		background-size: 77px 16px;
+	}
+	ul.accepted-payment-methods li.cash-on-delivery span {
+		background-image: url(images/cod@2x.png);
+		background-size: 27px 16px;
+	}
+	ul.accepted-payment-methods li.stripe span {
+		background-image: url(images/stripe@2x.png);
+		background-size: 39px 16px;
+	}
+	ul.accepted-payment-methods li.visadelta span {
+		background-image: url(images/delta@2x.png);
+		background-size: 26px 16px;
+	}
+	ul.accepted-payment-methods li.visaelectron span {
+		background-image: url(images/electron@2x.png);
+		background-size: 25px 16px;
+	}
+	ul.accepted-payment-methods li.jcb span {
+		background-image: url(images/jcb@2x.png);
+		background-size: 21px 16px;
+	}
+	ul.accepted-payment-methods li.bacs span {
+		background-image: url(images/bacs@2x.png);
+		background-size: 55px 16px;
+	}
+}
