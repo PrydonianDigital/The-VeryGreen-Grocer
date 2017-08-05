@@ -11,3 +11,4 @@
 	require_once('functions/post_types.php');
 	require_once('functions/woo.php');
 	require_once('functions/meta.php');
+	require_once('functions/customise.php');

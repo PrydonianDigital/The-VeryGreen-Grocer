@@ -1,3 +1,4 @@
+
 	<footer>
 
 		<div class="row">
@@ -32,6 +33,16 @@
 
 	</footer>
 
+	</div>
+
+	<div data-sticky-container>
+		<footer class="mobileCheckout" data-sticky data-stick-to="bottom" data-margin-bottom="0" data-sticky-on="small">
+		<div class="row">
+			<div class="small-12 columns" id="footerTotal">
+
+			</div>
+		</div>
+		</footer>
 	</div>
 
 </div>

@@ -8,11 +8,11 @@
 	function vgg_theme()	{
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 870, 250, array( 'center', 'top') );
-		add_image_size( 'top', 1130, 800, array( 'center', 'center') );
-		add_image_size( 'tiny', 60, 60);
+		set_post_thumbnail_size( 870, 250, array( 'center', 'center') );
+		add_image_size( 'top', 1550, 350 );
+		add_image_size( 'tiny', 60, 60 );
 		add_image_size( 'related', 265, 199, array( 'center', 'center') );
-		add_image_size( 'squared', 265, 265, array( 'center', 'top') );
+		add_image_size( 'squared', 265, 265, array( 'center', 'center') );
 		add_image_size( 'shop', 355, 222 );
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 		add_theme_support( 'title-tag' );
@@ -152,3 +152,50 @@
 		return '<div id="pcChecker"></div>';
 	}
 	add_shortcode( 'pcChecker', 'pcChecker' );
+
+	function foundation_pagination( $p = 2 ) {
+		if ( is_singular() ) return;
+		global $wp_query, $paged;
+		$max_page = $wp_query->max_num_pages;
+		if ( $max_page == 1 ) return;
+		if ( empty( $paged ) ) $paged = 1;
+		if ( $paged > $p + 1 ) p_link( 1, 'First' );
+		if ( $paged > $p + 2 ) echo '<li class="unavailable"><a href="#">&hellip;</a></li>';
+		for( $i = $paged - $p; $i <= $paged + $p; $i++ ) { // Middle pages
+				if ( $i > 0 && $i <= $max_page ) $i == $paged ? print "<li class='current'><a href='#'>{$i}</a></li> " : p_link( $i );
+		}
+		if ( $paged < $max_page - $p - 1 ) echo '<li class="unavailable"><a href="#">&hellip;</a></li>';
+		if ( $paged < $max_page - $p ) p_link( $max_page, 'Last' );
+	}
+	function p_link( $i, $title = '' ) {
+		if ( $title == '' ) $title = "Page {$i}";
+		echo "<li><a href='", esc_html( get_pagenum_link( $i ) ), "' title='{$title}'>{$i}</a></li> ";
+	}
+
+	function fwp_home_custom_query( $query ) {
+	    if ( $query->is_post_type_archive('extras') || $query->is_post_type_archive('suppliers') || $query->is_post_type_archive('produce') ) {
+	        $query->set( 'orderby', 'title' );
+	        $query->set( 'order', 'ASC' );
+	    }
+	}
+	add_filter( 'pre_get_posts', 'fwp_home_custom_query' );
+
+add_filter('woocommerce_available_payment_gateways','bbloomer_unset_gateway_by_category');
+
+	function bbloomer_unset_gateway_by_category($available_gateways){
+		global $woocommerce;
+		$category_IDs = array(46);
+		foreach ($woocommerce->cart->cart_contents as $key => $values ) {
+			$terms = get_the_terms( $values['product_id'], 'product_cat' );
+			foreach ($terms as $term) {
+				if(in_array($term->term_id, $category_IDs)){
+					unset( $available_gateways['cod'] );
+					unset( $available_gateways['bacs'] );
+					unset( $available_gateways['stripe'] );
+					break;
+				}
+				break;
+			}
+		}
+		return $available_gateways;
+	}

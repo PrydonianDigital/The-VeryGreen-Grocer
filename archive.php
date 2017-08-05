@@ -57,7 +57,7 @@
 		?>
 		<div class="row align-top">
 			<div class="small-12 columns text-center">
-				<p><?php the_title(); ?> is provided by:</p>
+				<p><?php the_title(); ?> supplies:</p>
 			</div>
 		<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
 		    <div class="small-3 medium-2 columns text-center tiny">

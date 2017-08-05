@@ -26,6 +26,7 @@ get_header(); ?>
 global $post, $product;
 $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 $post_thumbnail_id = get_post_thumbnail_id( $post->ID );
+$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'top');
 $full_size_image   = wp_get_attachment_image_src( $post_thumbnail_id, 'top' );
 $image_title       = get_post_field( 'post_excerpt', $post_thumbnail_id );
 $placeholder       = has_post_thumbnail() ? 'with-images' : 'without-images';
@@ -37,33 +38,31 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 ) );
 ?>
 
+<style>
+div.row[class*="<?php echo nl2br( get_theme_mod('vgg_extra1') ); ?>"] {display: none;}
+div.row[class*="<?php echo nl2br( get_theme_mod('vgg_extra2') ); ?>"] {display: none;}
+div.row[class*="<?php echo nl2br( get_theme_mod('vgg_extra3') ); ?>"] {display: none;}
+div.row[class*="<?php echo nl2br( get_theme_mod('vgg_extra4') ); ?>"] {display: none;}
+div.row[class*="<?php echo nl2br( get_theme_mod('vgg_extra5') ); ?>"] {display: none;}
+</style>
 	<div class="row align-middle page expanded">
 		<div class="small-12 columns">
 			<?php wc_print_notices(); do_action( 'woocommerce_before_cart' ); ?>
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 				<?php
-						if(!is_single('Buy from the Van')){
+					if(!is_single('Shop on Wheels')){
 				?>
-				<div class="callout title" style="background: url(<?php echo $full_size_image[0]; ?>) no-repeat;"></div>
-				<?php
-					}
-				?>
-		</div>
-	</div>
-	<div class="row">
-		<div class="small-12 columns">
-			<h2 class="title"><?php the_title(); ?></h2>
-				<div class="row">
+				<div class="hero-section" style="background: url(<?php echo $featured_img_url; ?>) no-repeat;">
+				  <div class="hero-section-text">
+				    <h1><?php the_title(); ?></h1>
+				    <h5>
 					<?php
-						if(is_single('Buy from the Van')){
+						if(is_single('Shop on Wheels')){
 					?>
-					<div class="small-12 large-12 columns">
-						<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
-					</div>
+				    <?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
 					<?php
 						} else {
 					?>
-					<div class="small-12 large-6 columns">
 						<?php
 							if(is_single('MixedBox')){
 						?>
@@ -75,13 +74,50 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 						<?php
 							}
 						?>
+						<?php
+							}
+						?>
+
+				    </h5>
+				  </div>
+				</div>
+				<?php
+					}
+				?>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+				<?php
+					if(is_single('Shop on Wheels')){
+				?>
+				<div class="row">
+					<div class="small-12 columns">
+						<h2><?php the_title(); ?></h2>
+						<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
+					</div>
+				</div>
+				<div class="row align-middle">
+					<div class="small-12 columns">
+						<?php do_action( 'woocommerce_single_product_summary' ); ?>
+						<div class="callout success large"><?php the_content(); ?></div>
+						<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
+
+						<?php do_action( 'woocommerce_after_single_product' ); ?>
+					</div>
+				</div>
+				<?php
+					} else {
+				?>
+				<div class="row">
+					<div class="small-12 large-6 columns">
 						<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
 					</div>
 					<div class="small-12 large-6 columns">
-						<h4><?php echo get_post_meta( $post->ID, '_text_field2', true ); ?><br /><small>(scroll box to see all items)</small></h4>
+						<h5><?php echo get_post_meta( $post->ID, '_text_field2', true ); ?><br /><small>(scroll to see all items, then make your selection from the green boxes below)</small></h5>
 						<ul class="tabs" data-tabs id="example-tabs">
-							<li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><?php the_title(); ?> Contents</a></li>
-							<li class="tabs-title"><a href="#panel2">Extra Items</a></li>
+							<li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><?php echo get_post_meta( $post->ID, '_text_field4', true ); ?></a></li>
+							<li class="tabs-title"><a href="#panel2">Add-On Items</a></li>
 						</ul>
 						<div class="tabs-content" data-tabs-content="example-tabs">
 							<div class="tabs-panel is-active" id="panel1">
@@ -156,24 +192,43 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 							</div>
 						</div>
 					</div>
-					<?php
-						}
-					?>
 				</div>
 
 				<div class="row align-middle">
+
+					<div class="small-12 columns text-center">
+						<br/><h3>Select your <?php the_title(); ?> contents</h3>
+					</div>
+
 					<div class="small-12 columns">
+
 						<?php do_action( 'woocommerce_single_product_summary' ); ?>
+
 						<div class="callout success large"><?php the_content(); ?></div>
+
 						<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
 
 						<?php do_action( 'woocommerce_after_single_product' ); ?>
+
 					</div>
 				</div>
+
+				<?php
+					}
+				?>
 
 			<?php endwhile; ?>
 
 			<?php endif; ?>
+
+			<?php
+				if(!is_single('Shop on Wheels')){
+			?>
+			<?php echo comments_template('woocommerce/single-product-reviews'); ?>
+			<?php
+				}
+			?>
+
 		</div>
 	</div>
 

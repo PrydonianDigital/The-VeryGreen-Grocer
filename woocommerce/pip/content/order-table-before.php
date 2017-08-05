@@ -185,24 +185,18 @@ defined( 'ABSPATH' ) or exit;
 
 						<?php endif; ?>
 
-						<?php if ( $document->show_shipping_method() ) : ?>
+						<?php //if ( $document->show_shipping_method() ) : ?>
 
 							<div class="column shipping-method left">
-
-								<h3><?php esc_html_e( 'Shipping Method', 'woocommerce-pip' ); ?></h3>
-
-								<em class="shipping-method">
-									<?php echo $document->get_shipping_method(); ?>
-								</em>
 
 								<h3><?php esc_html_e( 'Delivery on', 'woocommerce-pip' ); ?></h3>
 
 								<em class="shipping-method">
-									<?php $delivery_date = wc_od_get_order_meta( $order_id, '_delivery_date' ); echo $delivery_date; ?>
+									<?php $delivery_date = wc_od_get_order_meta( $order_id, '_delivery_date' ); $date = strtotime($delivery_date); $new_date = date('dS F Y', $date); echo $new_date; ?>
 								</em>
 							</div>
 
-						<?php endif; ?>
+						<?php //endif; ?>
 
 						<div class="clear"></div>
 					</div>

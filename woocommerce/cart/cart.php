@@ -80,7 +80,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 								if ( ! $product_permalink ) {
 									echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;';
 								} else {
-									echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key );
+									echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s" class="strong">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key );
 								}
 
 								// Meta data

@@ -1154,7 +1154,7 @@ select {
     .show-for-portrait {
       display: block !important; } }
 
-.button {
+.button, .pushbutton-wide, [type="submit"] {
   display: inline-block;
   vertical-align: middle;
   margin: 0 0 1rem 0;

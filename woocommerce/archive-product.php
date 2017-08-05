@@ -22,6 +22,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 global $woocommerce;
+
+$page_id = get_page_by_title( 'Shop' );
+$id =  $page->ID;
+$page_object = get_page( $page_id );
+if(is_shop()){
+?>
+
+
+
+<div class="row align-middle page">
+
+	<div class="small-12 columns">
+		<?php echo $page_object->post_content; ?>
+	</div>
+
+</div>
+
+<?php
+}
 ?>
 
 <div class="row align-middle page">
@@ -34,30 +53,27 @@ global $woocommerce;
 			$currency = '';
 			$price = '£10 Minimum spend';
 		}
-		if($price == '0' && $post->post_title == 'Buy from the Van') {
+		if($price == '0' && $post->post_title == 'Shop on Wheels') {
 			$currency = '';
 			$price = '&nbsp;';
 		}
 	?>
 	<div class="small-12 medium-6 large-3 columns">
-		<div class="card">
-			<div class="card-divider text-center">
-				<a href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
+		<div class="card card-user-profile">
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('shop', array('class' => 'card-user-profile-img')); ?></a>
+			<div class="card-user-profile-content card-section">
+				<p class="card-user-profile-name"><?php the_title(); ?></p>
+				<p class="card-user-profile-status"><?php echo $currency . '' . $price; ?><?php echo get_post_meta( $post->ID, '_text_field3', true ); ?></p>
 			</div>
-			<div class="text-center">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('shop'); ?></a>
-			</div>
-			<div class="card-section text-center">
-				<p class="price subtitle"><?php echo $currency . '' . $price; ?><?php echo get_post_meta( $post->ID, '_text_field3', true ); ?></p>
-			</div>
-			<div class="card-divider text-center">
-				<a href="<?php the_permalink(); ?>"><h6>
+			<div class="card-user-profile-actions">
+				<a href="<?php the_permalink(); ?>" class="card-user-profile-button button hollow">
 				<?php
 					echo get_post_meta( $post->ID, '_text_field', true );
 				?>
-				</h6></a>
+				</a>
 			</div>
 		</div>
+
 	</div>
 	<?php endwhile; ?>
 

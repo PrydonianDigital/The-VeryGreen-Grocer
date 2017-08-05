@@ -28,7 +28,7 @@ wc_print_notices();
  */
 do_action( 'woocommerce_account_navigation' ); ?>
 
-<div class="woocommerce-MyAccount-content small-12 medium-6 columns">
+<div class="woocommerce-MyAccount-content small-12 medium-8 columns">
 	<?php
 		/**
 		 * My Account content.

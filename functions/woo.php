@@ -1,5 +1,11 @@
 <?php
 
+add_filter( 'woocommerce_continue_shopping_redirect', 'wc_custom_redirect_continue_shopping' );
+
+function wc_custom_redirect_continue_shopping() {
+	return 'https://theverygreengrocer.co.uk/shop/';
+}
+
 add_filter('woocommerce_free_price_html', 'changeFreePriceNotice', 10, 2);
 
 function changeFreePriceNotice($price, $product) {
@@ -156,6 +162,20 @@ add_filter( 'body_class', 'woo_custom_taxonomy_in_body_class' );
 
 		echo '</div>';
 
+		echo '<div class="options_group">';
+
+		woocommerce_wp_text_input(
+			array(
+				'id'		  => '_text_field4',
+				'label'	   => __( '"This week" box', 'ayguw' ),
+				'placeholder' => 'Available in this week\'s box',
+				'desc_tip'	=> 'true',
+				'description' => __( 'Enter the wording for the "available in this week\'s box text here.', 'ayguw' )
+			)
+		);
+
+		echo '</div>';
+
 	}
 
 	function woo_add_custom_general_fields_save( $post_id ){
@@ -172,6 +192,10 @@ add_filter( 'body_class', 'woo_custom_taxonomy_in_body_class' );
 		$woocommerce_text_field = $_POST['_text_field3'];
 		if( !empty( $woocommerce_text_field ) )
 			update_post_meta( $post_id, '_text_field3', esc_attr( $woocommerce_text_field ) );
+
+		$woocommerce_text_field = $_POST['_text_field4'];
+		if( !empty( $woocommerce_text_field ) )
+			update_post_meta( $post_id, '_text_field4', esc_attr( $woocommerce_text_field ) );
 
 	}
 

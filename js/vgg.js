@@ -5,7 +5,7 @@ jQuery(document).ready(function ($) {
 	$('.product-addon').on('click', '.closed', function() {
 		$('.addon-title').addClass('closed').removeClass('open');
 		$(this).addClass('open').removeClass('closed');
-		$('.addon.row').slideUp();
+		//$('.addon.row').slideUp();
 		$(this).parent().parent().find('.addon.row').slideDown();
 	});
 	$('.product-addon').on('click', '.open', function() {
@@ -44,7 +44,7 @@ jQuery(document).ready(function ($) {
 	});
 	$('#pcChecker').html('<form><div class="row"><div class="small-12 medium-6 columns"><h3>Postcode Check</h3><p>Check if we deliver to your area. Enter the <strong>first part</strong> of your postcode below <strong>(Eg: SE18)</strong></p><div class="input-group"><input class="input-group-field" id="postcode" type="text" maxlength="4" aria-describedby="pcChecker"><div class="input-group-button"><button id="check" class="button">Find Out</button></div></div><h4 id="output">&nbsp;</h4></div></div></form>');
 
-	var postcodes = ['SE2', 'SE3', 'SE7','SE8', 'SE9', 'SE10', 'SE12','SE13','SE14', 'SE18', 'SE28'],
+	var postcodes = ['SE2', 'SE3', 'SE7', 'SE8', 'SE9', 'SE10', 'SE12', 'SE13', 'SE14', 'SE18', 'SE28', 'DA16', 'DA8', 'DA5', 'DA6', 'DA7', 'DA15', 'DA14', 'BR7', 'DA2'],
 		success = 'Yes! We deliver to your area!',
 		failure = 'Sorry, we don\'t deliver to your area yet.',
 		loader = '<img src="/wp-content/themes/the-verygreen-grocer/images/apple.gif">';
@@ -62,6 +62,11 @@ jQuery(document).ready(function ($) {
 				n();
 			}).fadeIn(500);
 		}
+	});
+	$('body').on('DOMSubtreeModified', '#product-addons-total', function() {
+		$('.mobileCheckout').fadeIn();
+		var data = $(this).html();
+		$('#footerTotal').html(data)
 	});
 });
 

@@ -61,7 +61,17 @@ if ( $product->is_in_stock() ) : ?>
 				</div>
 				<div class="small-12 columns text-center">
 					<div class="callout large">
+						<?php
+							if(!is_single('Shop on Wheels')){
+						?>
 						<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button large expanded is-success alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+						<?php
+							} else {
+						?>
+						<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button large expanded is-success alt">Request a visit</button>
+						<?php
+							}
+						?>
 					</div>
 				</div>
 			</div>
