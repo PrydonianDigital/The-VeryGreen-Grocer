@@ -68,7 +68,11 @@ footer {
 	box-shadow: 0 -2px 4px rgba(0,0,0,0.5);
 }
 .mobileCheckout {
+	position: fixed;
 	display: none;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 }
 #footerTotal {
 	padding: 0.25rem;
